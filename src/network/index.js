@@ -76,16 +76,31 @@ export const getLibraries = () => {
    })
     .then(async response => {
       let data = await response.json();
-      
       data = data.categories.items;
+      console.log(data);
       
       let outputList = data.map(i => {
         return {
           title: i.name,
-          src: i.icons[0].url
+          src: i.icons[0].url,
+          id: i.id
         }
       })
       return outputList;
 
+    })
+}
+
+export const getPlaylists = category_id => {
+
+  return fetch(`${BASE_URL}/browse/categories/${category_id}/playlists`, { 
+    headers: {
+      'Content-Type': "application/json",
+      'Authorization': `Bearer ${access_token}`
+    }
+   })
+    .then(async response => {
+      let data = await response.json();
+      return data;
     })
 }

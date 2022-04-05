@@ -1,0 +1,17 @@
+.genres-modal {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  background: #0e0d0d;
+  top: 0;
+  left: 0;
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+
+  .back-button {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+  }
+}

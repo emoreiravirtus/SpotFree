@@ -10,6 +10,7 @@
 @import './components/button';
 @import './components/search-box';
 @import './components/genre-box';
+@import './components/genres-modal';
 
 body {
   background: map-get($colors, 'dark');
