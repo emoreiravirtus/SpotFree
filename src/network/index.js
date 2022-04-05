@@ -68,8 +68,6 @@ const callAuthorizationApi = async body => {
 
 export const getLibraries = () => {
 
-  console.log(access_token)
-
   return fetch(`${BASE_URL}/browse/categories`, { 
     headers: {
       'Content-Type': "application/json",
