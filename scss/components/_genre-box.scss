@@ -1,0 +1,28 @@
+.genre-box {
+  background-color: map-get($colors, 'dark-gray');
+  border-radius: 10px;
+  color: map-get($colors, 'light');
+  transition: all .4s;
+  position: relative;
+  cursor: pointer;
+  @include box-shadow();
+
+  &:hover {
+    background-color: map-get($colors, 'normal-gray');
+  }
+
+  &__img {
+    border-radius: 10px;
+    overflow: hidden;
+    @include box-shadow();
+  }
+
+  &__title {
+    font-weight: 600;
+    height: 30px;
+    bottom: 0px;
+    left: 30px;
+    position: absolute;
+    @include ellipsis();
+  }
+}

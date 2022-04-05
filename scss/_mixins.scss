@@ -1,0 +1,69 @@
+@mixin media($conditions...) {
+  @for $i from 1 through length($conditions) {
+      $conditions: set-nth($conditions, $i, parse-expression(nth($conditions, $i)));
+  }
+
+  $branches: get-query-branches($conditions);
+  $query: '';
+
+  @each $branch in $branches {
+      @if (str-length($query) != 0) {
+      $query: $query + ', ';
+      }
+
+      $query: $query + $branch;
+  }
+
+  @media #{$query} {
+      @content;
+  }
+}
+
+@mixin svg-icon($path, $height, $width, $color ) {
+    height: $height;
+    width: $width;
+    background-color: $color;
+    mask-image: url($path); 
+    background-size: cover;
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-position: center;
+    mask-position: center;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+}
+
+@mixin create-mq($breakpoint) {
+    @if($breakpoint == 0) {
+      @content;
+    } @else {
+      @media screen and (min-width: calc($breakpoint * 1px)) {
+        @content;
+      }
+    }
+}
+
+@mixin create-col-classes($modifier, $grid-cols, $breakpoint) {
+  @include create-mq($breakpoint) {
+    &__col#{$modifier}-offset-0 {
+      margin-left: 0;
+    }
+    @for $i from 1 through $grid-cols {
+      .col#{$modifier}-#{$i} {
+        flex-basis: calc(100 / ($grid-cols / $i) ) * 1%;
+      }
+      .col#{$modifier}-offset-#{$i} {
+        margin-left: calc(100 / ($grid-cols / $i) ) * 1%;
+      }
+    }
+  }
+}
+
+@mixin box-shadow() {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+@mixin ellipsis() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

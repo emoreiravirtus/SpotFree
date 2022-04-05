@@ -1,0 +1,28 @@
+body {
+  font-family: $font-family;
+  font-weight: map-get($font-weights, s);
+  line-height: map-get($line-heights, s);
+  font-size: map-get($font-sizes, s);
+}
+
+@each $sizeName, $size in $font-sizes {
+
+  .font-#{$sizeName} {
+    font-size: $size;
+
+    @each $weightName, $weight in $font-weights {
+
+      &-#{$weightName}{
+        font-weight: $weight;
+
+        @each $lineHeightName, $height in $line-heights {
+          &-#{$lineHeightName} {
+            line-height: $height;
+          }
+        }
+
+      }
+      
+    }
+  }
+}

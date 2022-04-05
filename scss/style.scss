@@ -1,0 +1,16 @@
+@import 'variables';
+@import 'functions';
+@import 'mixins';
+@import 'spacings';
+@import 'colors';
+@import 'grid-system';
+@import 'animations';
+@import 'fonts';
+@import 'misc';
+@import './components/button';
+@import './components/search-box';
+@import './components/genre-box';
+
+body {
+  background: map-get($colors, 'dark');
+}

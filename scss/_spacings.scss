@@ -1,0 +1,63 @@
+@each $spacingName, $size in $spaccings {
+
+  .mt-#{$spacingName} {
+    margin-top: #{$size}px;
+  }
+
+  .mb-#{$spacingName} {
+    margin-bottom: #{$size}px;
+  }
+
+  .ml-#{$spacingName} {
+    margin-left: #{$size}px;
+  }
+
+  .mr-#{$spacingName} {
+    margin-right: #{$size}px;
+  }
+
+  .mx-#{$spacingName} {
+    margin-left: #{$size}px;
+    margin-right: #{$size}px;
+  }
+
+  .my-#{$spacingName} {
+    margin-top: #{$size}px;
+    margin-bottom: #{$size}px;
+  }
+
+  .m-#{$spacingName} {
+    margin: #{$size}px !important;
+  }
+
+  .pt-#{$spacingName} {
+    padding-top: #{$size}px;
+  }
+
+  .pb-#{$spacingName} {
+    padding-bottom: #{$size}px;
+  }
+
+  .pl-#{$spacingName} {
+    padding-left: #{$size}px;
+  }
+
+  .pr-#{$spacingName} {
+    padding-right: #{$size}px;
+  }
+
+  .px-#{$spacingName} {
+    padding-left: #{$size}px;
+    padding-right: #{$size}px;
+  }
+
+  .py-#{$spacingName} {
+    padding-top: #{$size}px;
+    padding-bottom: #{$size}px;
+  }
+
+  .p-#{$spacingName} {
+    padding: #{$size}px !important;
+  }
+
+}

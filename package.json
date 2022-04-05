@@ -1,0 +1,39 @@
+{
+  "name": "spotfree",
+  "version": "1.0.0",
+  "description": "A Spotify clone",
+  "private": true,
+  "scripts": {
+    "test": "test",
+    "build": "webpack",
+    "start": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emoreiravirtus/SpotFree.git"
+  },
+  "keywords": [
+    "music"
+  ],
+  "author": "Elias Moreira",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emoreiravirtus/SpotFree/issues"
+  },
+  "homepage": "https://github.com/emoreiravirtus/SpotFree#readme",
+  "dependencies": {
+    "dart-sass": "^1.25.0",
+    "dotenv": "^16.0.0",
+    "dotenv-webpack": "^7.1.0",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "css-loader": "^6.7.1",
+    "sass": "^1.49.9",
+    "sass-loader": "^12.6.0",
+    "style-loader": "^3.3.1",
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2",
+    "webpack-dev-server": "^4.7.4"
+  }
+}
