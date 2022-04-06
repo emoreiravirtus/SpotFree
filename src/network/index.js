@@ -4,7 +4,7 @@ const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
 const REDIRECT_URI = process.env.REDIRECT_URI;
 
-let access_token = '';
+let accessToken = '';
 let refresh_token = '';
 
 export const getAuthorization = () => {
@@ -17,7 +17,7 @@ export const getAuthorization = () => {
 }
 
 export const setTokens = () => {
-  access_token = localStorage.getItem('access_token');
+  accessToken = localStorage.getItem('access_token');
   refresh_token = localStorage.getItem('refresh_token');
 }
 
@@ -71,13 +71,12 @@ export const getLibraries = () => {
   return fetch(`${BASE_URL}/browse/categories`, { 
     headers: {
       'Content-Type': "application/json",
-      'Authorization': `Bearer ${access_token}`
+      'Authorization': `Bearer ${accessToken}`
     }
    })
     .then(async response => {
       let data = await response.json();
       data = data.categories.items;
-      console.log(data);
       
       let outputList = data.map(i => {
         return {
@@ -91,16 +90,42 @@ export const getLibraries = () => {
     })
 }
 
-export const getPlaylists = category_id => {
+export const getSongs = categoryId => {
 
-  return fetch(`${BASE_URL}/browse/categories/${category_id}/playlists`, { 
+  return fetch(`${BASE_URL}/browse/categories/${categoryId}/playlists`, { 
     headers: {
       'Content-Type': "application/json",
-      'Authorization': `Bearer ${access_token}`
+      'Authorization': `Bearer ${accessToken}`
     }
    })
     .then(async response => {
-      let data = await response.json();
+      const data = await response.json();
+      const playlistiD = data.playlists.items[0].id;
+
+      return fetch(`${BASE_URL}/playlists/${playlistiD}`, { 
+        headers: {
+          'Content-Type': "application/json",
+          'Authorization': `Bearer ${accessToken}`
+        }
+       })
+        .then(async response => {
+          const data = await response.json();
+          return data.tracks.items;
+        });
+    })
+}
+
+export const playTrack = id => {
+  return fetch(`${BASE_URL}/tracks/${id}`, { 
+    headers: {
+      'Content-Type': "application/json",
+      'Authorization': `Bearer ${accessToken}`
+    }
+   })
+    .then(async response => {
+      const data = await response.json();
+
+      localStorage.setItem('currentTrackId', data.id);
       return data;
     })
 }

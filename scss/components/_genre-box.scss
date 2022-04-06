@@ -23,6 +23,7 @@
     bottom: 0px;
     left: 30px;
     position: absolute;
+    max-width: 68px;
     @include ellipsis();
   }
 }

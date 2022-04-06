@@ -1,0 +1,58 @@
+.player-modal {
+  position: fixed;
+  bottom: 0;
+  height: 15vh;
+  width: 100vw;
+  background: map-get($colors, 'dark-gray' );
+  left: 0;
+  display: none;
+  justify-content: center;
+
+  .player-track {
+    color: map-get($colors, 'light' );
+    display: flex;
+    cursor: pointer;
+    transition: all .2s;
+    border-radius: 10px;
+    align-items: center;
+    width: 100%;
+    justify-content: space-around;
+    max-width: 350px;
+
+    &:hover {
+      background-color: map-get($colors, 'dark-gray');
+    }
+
+    .player-track-image {
+
+      img {
+        width: 50px;
+        border-radius: 10px;
+      }
+      
+    }
+
+    .player-track-artist {
+      white-space: nowrap;
+      overflow: hidden;
+      width: 130px;
+
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+    
+    .back-button {
+
+      span {
+        width: 20px;
+        height: 20px;
+        background: white;
+        clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+        transform: rotate(90deg) translateY(-3px);
+      }
+
+    }
+  }
+}

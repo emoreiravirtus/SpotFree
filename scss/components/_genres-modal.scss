@@ -6,12 +6,41 @@
   top: 0;
   left: 0;
   display: none;
-  justify-content: center;
   flex-direction: column;
 
   .back-button {
     position: absolute;
     top: 15px;
     left: 15px;
+    @include box-shadow();
+  }
+
+  .tracks-container {
+    height: 100vh;
+    overflow-y: scroll;
+    margin: 13vh 0 0 12vw;
+
+    .track {
+      color: map-get($colors, 'light' );
+      display: flex;
+      cursor: pointer;
+      transition: all .2s;
+      border-radius: 10px;
+      align-items: center;
+      @include box-shadow();
+
+      &:hover {
+        background-color: map-get($colors, 'dark-gray');
+      }
+  
+      .track-image {
+  
+        img {
+          width: 50px;
+          border-radius: 10px;
+        }
+        
+      }
+    }
   }
 }

@@ -11,7 +11,36 @@
 @import './components/search-box';
 @import './components/genre-box';
 @import './components/genres-modal';
+@import './components/player-modal';
 
 body {
-  background: map-get($colors, 'dark');
+  background-color: #464545;
+background-image: url("https://www.transparenttextures.com/patterns/diagmonds.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
+
+.main-view {
+  margin-bottom: 15vh;
+}
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #787878 #ababab;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 16px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: map-get($colors, 'dark-gray');
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: map-get($colors, 'normal-gray');
+    border-radius: 10px;
+    border: 3px solid map-get($colors, 'normal-gray');
+  }

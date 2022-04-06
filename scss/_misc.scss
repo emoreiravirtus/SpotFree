@@ -3,3 +3,8 @@
     border-radius: $border-radius-size;
   }
 }
+
+.stop-scrolling {
+  height: 100%;
+  overflow: hidden;
+}
