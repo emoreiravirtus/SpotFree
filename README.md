@@ -1,3 +1,1 @@
-# Starter Javascript project
-
-Just a template for faster development
+# A Spotify like app, you can check the final result [HERE](https://spotfree-84208.web.app/)
