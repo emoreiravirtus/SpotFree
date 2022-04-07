@@ -2,7 +2,7 @@ const BASE_URL = process.env.BASE_URL;
 const ACCOUNTS_BASE_URL = process.env.ACCOUNTS_BASE_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI_LOCAL;
+const REDIRECT_URI = process.env.REDIRECT_URI_PROD;
 
 let accessToken = '';
 let refresh_token = '';
