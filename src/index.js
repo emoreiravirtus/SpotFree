@@ -35,6 +35,9 @@ const initialize = async () => {
     const html = `
       <div class="main-view" data-app-id="mainView">
         <div class="container">
+          <div class="row my- title">
+            <div>Spot<span>FREE</span></div>
+          </div>
           <div class="row my-xl">
             <div class="col-12"></div>
           </div>
