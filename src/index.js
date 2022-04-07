@@ -16,14 +16,19 @@ import { attachFunctionToElement } from "../util/actionsAttacher";
 const genreBox = new GenreBox();
 let genresList = [];
 
+let isPlaying = false;
+
 const initialize = async () => {
 
   if(window.location.search.length > 0) {
+
     setTokens();
 
     let code = await getCode();
 
     await fetchAccessToken(code)
+
+    await setTokens();
     
     genresList = await getLibraries()
   
@@ -71,9 +76,22 @@ const initialize = async () => {
                   <p>${track.name}<p/>
                   <p>${track.artists[0].name}</p>
                 </div>
-                <div class="back-button"><span></span</div>
+                <div class="player-track-play-button">
+                  <span class="play-icon">
+                    <div></div><div></div>
+                  </span>
+                </div>
+                <div class="waves">
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                  <div></div>
+                </div>
               </div>
               `;
+
+              setPlayerAction();
             })
     }
   }
@@ -130,12 +148,51 @@ initialize()
                 <div class="player-track-artist ml-s">
                   <p>${track.name}<p/>
                   <p>${track.artists[0].name}</p>
+                  </div>
+                  <div class="player-track-play-button">
+                    <span class="play-icon">
+                      <div></div><div></div>
+                    </span>
+                  </div>
+                  <div class="waves">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                  </div>
                 </div>
-                <div class="back-button"><span></span</div>
-              </div>
               `;
+              
+              setPlayerAction(true);
             })
         })
         
       })
   }));
+
+const setPlayerAction = (modifier = false) => {
+  
+  if(modifier) {
+    isPlaying = true;
+    document.querySelector('.player-track-play-button span').classList.add('pause-icon');
+    document.querySelector('.player-track-play-button span').classList.remove('play-icon');
+    document.querySelector('.waves').classList.add('waves-animated');
+  } 
+
+  attachFunctionToElement('.player-track-play-button', function() {
+
+    if (!isPlaying) {
+      document.querySelector('.player-track-play-button span').classList.add('pause-icon');
+      document.querySelector('.player-track-play-button span').classList.remove('play-icon');
+      document.querySelector('.waves').classList.add('waves-animated');
+    }
+    else {
+      document.querySelector('.player-track-play-button span').classList.remove('pause-icon');
+      document.querySelector('.player-track-play-button span').classList.add('play-icon');
+      document.querySelector('.waves').classList.remove('waves-animated');
+    }
+
+    isPlaying = !isPlaying;
+  });
+}

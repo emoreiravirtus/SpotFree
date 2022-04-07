@@ -2,7 +2,7 @@ const BASE_URL = process.env.BASE_URL;
 const ACCOUNTS_BASE_URL = process.env.ACCOUNTS_BASE_URL;
 const CLIENT_ID = process.env.CLIENT_ID;
 const CLIENT_SECRET = process.env.CLIENT_SECRET;
-const REDIRECT_URI = process.env.REDIRECT_URI;
+const REDIRECT_URI = process.env.REDIRECT_URI_LOCAL;
 
 let accessToken = '';
 let refresh_token = '';
@@ -33,14 +33,14 @@ export const getCode = () => {
   return code;
 }
 
-export const fetchAccessToken = code => {
+export const fetchAccessToken = async code => {
   let body = 'grant_type=authorization_code';
   body += `&code=${code}`;
   body += `&redirect_uri=${encodeURI(REDIRECT_URI)}`;
   body += `&client_id=${CLIENT_ID}`;
   body += `&client_secret=${CLIENT_SECRET}`;
 
-  callAuthorizationApi(body);
+  await callAuthorizationApi(body);
 }
 
 const callAuthorizationApi = async body => {
@@ -63,10 +63,16 @@ const callAuthorizationApi = async body => {
     if(data.refresh_token) {
       localStorage.setItem('refresh_token', data.refresh_token)
     }
+
+    console.log(data.access_token)
   })
 }
 
 export const getLibraries = () => {
+
+  console.log(accessToken);
+
+  accessToken = localStorage.getItem('access_token');
 
   return fetch(`${BASE_URL}/browse/categories`, { 
     headers: {

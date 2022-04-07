@@ -1,0 +1,23 @@
+@keyframes soundWave1 {
+  0% { transform: scaleY(1); }
+  25% { transform: scaleY(calc(random(500)/1000)); }
+  50% { transform: scaleY(calc(random(999)/1000)); }
+  75% { transform: scaleY(calc(random(200)/1000)); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes soundWave2 {
+  0% { transform: scaleY(1); }
+  25% { transform: scaleY(calc(random(999)/1000)); }
+  50% { transform: scaleY(calc(random(200)/1000)); }
+  75% { transform: scaleY(calc(random(600)/1000)); }
+  100% { transform: scaleY(1); }
+}
+
+@keyframes soundWave3 {
+  0% { transform: scaleY(1); }
+  26% { transform: scaleY(calc(random(895)/1000)); }
+  60% { transform: scaleY(calc(random(300)/1000)); }
+  89% { transform: scaleY(calc(random(600)/1000)); }
+  100% { transform: scaleY(1); }
+}

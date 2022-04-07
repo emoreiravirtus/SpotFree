@@ -11,7 +11,6 @@
   .player-track {
     color: map-get($colors, 'light' );
     display: flex;
-    cursor: pointer;
     transition: all .2s;
     border-radius: 10px;
     align-items: center;
@@ -23,7 +22,7 @@
       background-color: map-get($colors, 'dark-gray');
     }
 
-    .player-track-image {
+    &-image {
 
       img {
         width: 50px;
@@ -32,7 +31,7 @@
       
     }
 
-    .player-track-artist {
+    &-artist {
       white-space: nowrap;
       overflow: hidden;
       width: 130px;
@@ -43,9 +42,21 @@
       }
     }
     
-    .back-button {
+    &-play-button {
+      width: 50px;
+      height: 50px;
+      background-color: map-get($colors, 'primary' );
+      background-image: url("https://www.transparenttextures.com/patterns/fake-luxury.png");
+      border-radius: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 43px;
+      font-weight: 600;
+      transition: .3s all;
+      cursor: pointer;
 
-      span {
+      .play-icon {
         width: 20px;
         height: 20px;
         background: white;
@@ -53,6 +64,62 @@
         transform: rotate(90deg) translateY(-3px);
       }
 
+      .pause-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        div {
+          height: 20px;
+          width: 6px;
+          background: white;
+          margin: 0 2px;
+        }
+      }
+
+      &:hover {
+        background: lighten(map-get($colors, 'primary'), 20%);
+      }
+
+    }
+
+    .waves {
+      display: flex;
+      align-items: center;
+      div {
+        width: 6px;
+        margin: 0 2px;
+        border-radius: 5px;
+        background: map-get($colors, 'primary');
+      }
+    }
+
+    .waves-animated {
+
+      & div:nth-child(1) {
+        height: 10px;
+        animation: soundWave3 .7s infinite;
+      }
+
+      & div:nth-child(2) {
+        height: 30px;
+        animation: soundWave1 1.3s infinite;
+      }
+
+      & div:nth-child(3) {
+        height: 45px;
+        animation: soundWave2 .9s infinite;
+      }
+
+      & div:nth-child(4) {
+        height: 30px;
+        animation: soundWave3 .7s infinite;
+      }
+
+      & div:nth-child(5) {
+        height: 10px;
+        animation: soundWave2 .9s infinite;
+      }
     }
   }
 }
