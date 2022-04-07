@@ -4,7 +4,9 @@
 
 1 - Clone the repo
 
-2 - Create a .env file in your root folder with the following content:
+2 - cd spotfree
+
+3 - Create a .env file in your root folder with the following content:
 
 <pre>
 <code>
@@ -18,8 +20,8 @@ REDIRECT_URI_LOCAL=http://localhost:8080/
 
 change the CLIENT_ID and CLIENT_SECRET values with your personal spotify developer values, you can get them [here](https://developer.spotify.com/dashboard/login)
 
-3 - npm install
+4 - npm install
 
-4 - npm run start
+5 - npm run start
 
 It will automatically open on localhost:8080
